@@ -16,4 +16,12 @@ public class Move {
     public void setPlayer(Player player) {
         this.player = player;
     }
+
+    public Cell getCell() {
+        return cell;
+    }
+
+    public void setCell(Cell cell) {
+        this.cell = cell;
+    }
 }
