@@ -60,9 +60,6 @@ Contributions are welcome! If you'd like to improve this project, follow these s
    ```
 5. **Create a Pull Request**
 
-## 📜 License
-This project is **open-source**. You can use and modify it for learning purposes.
-
 ## 📧 Contact
 For any queries or suggestions, feel free to contact:
 
