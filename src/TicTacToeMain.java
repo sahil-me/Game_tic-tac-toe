@@ -1,4 +1,5 @@
 import controllers.GameController;
+import exceptions.InvalidGameConstructionParametersException;
 import models.*;
 
 import java.util.ArrayList;
@@ -11,6 +12,7 @@ public class TicTacToeMain {
 
         GameController gameController = new GameController();
         System.out.println("=========== Welcome to Tic Tac Toe ============");
+
         System.out.println("What is the dimension of the game?");
         int size = in.nextInt();
 
@@ -47,12 +49,20 @@ public class TicTacToeMain {
 
         String winningStrategy = "OrderOne";
 
-        Game game = gameController.createGame(size, players, winningStrategy);
+        Game game;
 
-        // I want to check the gameStatus consistently
-        // If the game status is IN_PROGRESS
-        // Else come out of the while loop
-        while(gameController.getGameState(game).equals(GameState.IN_PROGRESS)) {
+        try {
+            game = gameController.createGame(
+                    size,
+                    players,
+                    winningStrategy
+            );
+        } catch (InvalidGameConstructionParametersException e) {
+            System.out.println(e.getMessage());
+            return;
+        }
+
+        while(gameController.getGameState(game) == GameState.IN_PROGRESS) {
             System.out.println("This is your current board");
             gameController.displayBoard(game);
 
@@ -61,7 +71,7 @@ public class TicTacToeMain {
 
         System.out.println("Game has ended. Result was: ");
 
-        if(!game.getGameState().equals(GameState.DRAW)){
+        if(game.getGameState() != GameState.DRAW){
             System.out.println("Winner is: " + gameController.getWinner(game).getName());
             gameController.displayBoard(game);
         }

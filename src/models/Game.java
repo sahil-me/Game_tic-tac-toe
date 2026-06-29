@@ -3,7 +3,9 @@ package models;
 import exceptions.InvalidGameConstructionParametersException;
 import factories.GameWinningStrategyFactory;
 import strategies.gamewinningstrategy.GameWinningStrategy;
-import strategies.gamewinningstrategy.OrderOneGameWinningStrategy;
+
+import java.util.HashSet;
+import java.util.Set;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -64,17 +66,19 @@ public class Game {
     }
 
     public void makeNextMove() {
+
         // I am picking the player whose turn it is to move
         Player toMovePlayer = players.get(nextPlayerIndex);
 
         System.out.println("It is " + toMovePlayer.getName() + "'s turn");
 
-        Move move = toMovePlayer.decideMove(board); // Cell@101 -> 0,0
-
         // validate the move
-        boolean isValidMove = validateCurrentMove(move);
+        Move move = toMovePlayer.decideMove(board);
 
-        // TODO:: consider that the move is valid
+        if (!validateCurrentMove(move)) {
+            System.out.println("Invalid move! Try again.");
+            return;
+        }
 
         int row = move.getCell().getRow();
         int col = move.getCell().getCol();
@@ -91,10 +95,17 @@ public class Game {
         if(this.gameWinningStrategy.checkWinner(board, move.getCell(), toMovePlayer)){
             gameState = GameState.ENDED;
             winner = toMovePlayer;
+            return;
         }
 
-        nextPlayerIndex += 1;
-        nextPlayerIndex %= players.size();
+        // Draw
+        if (moves.size() == board.getSize() * board.getSize()) {
+            gameState = GameState.DRAW;
+            return;
+        }
+
+        nextPlayerIndex = (nextPlayerIndex + 1) % players.size();
+
     }
 
     private boolean validateCurrentMove(Move move){
@@ -103,7 +114,7 @@ public class Game {
 
         return row >= 0 && row < board.getSize() &&
                 col >= 0 && col < board.getSize() &&
-                move.getCell().getCellState().equals(CellState.EMPTY);
+                move.getCell().getCellState() == CellState.EMPTY;
     }
 
     public static class Builder {
@@ -128,16 +139,46 @@ public class Game {
         }
 
         private void validate() throws InvalidGameConstructionParametersException {
-            if(this.size < 3){
-                throw new InvalidGameConstructionParametersException("The size of the board cannot be less than 3");
+
+            if (this.size < 3) {
+                throw new InvalidGameConstructionParametersException(
+                        "The size of the board cannot be less than 3");
             }
 
-            if(this.players.size() != size - 1){
-                throw new InvalidGameConstructionParametersException("The number of players in the game should be board size - 1");
+            if (this.players == null || this.players.isEmpty()) {
+                throw new InvalidGameConstructionParametersException(
+                        "Players list cannot be empty");
+            }
+
+            if (this.players.size() != size - 1) {
+                throw new InvalidGameConstructionParametersException(
+                        "The number of players in the game should be board size - 1");
+            }
+
+            if (this.gameWinningStrategy == null) {
+                throw new InvalidGameConstructionParametersException(
+                        "Invalid game winning strategy");
+            }
+
+            Set<String> playerNames = new HashSet<>();
+            Set<Character> playerSymbols = new HashSet<>();
+
+            for (Player player : players) {
+
+                if (!playerNames.add(player.getName())) {
+                    throw new InvalidGameConstructionParametersException(
+                            "Duplicate player names are not allowed");
+                }
+
+                if (!playerSymbols.add(player.getSymbol())) {
+                    throw new InvalidGameConstructionParametersException(
+                            "Duplicate player symbols are not allowed");
+                }
             }
         }
 
         public Game build() throws InvalidGameConstructionParametersException {
+
             // validations
             validate();
 
@@ -153,10 +194,3 @@ public class Game {
         }
     }
 }
-
-/* 1.5 hours
-Overview -> 2 mins
-Requirement Gathering -> 10 - 15 min
-Class Diagram and coding models -> 15 mins
-Time to complete code -> 1 hr
- */
