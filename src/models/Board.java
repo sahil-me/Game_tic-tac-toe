@@ -24,25 +24,37 @@ public class Board {
     }
 
     public int getSize() {
+
         return size;
     }
 
     public List<List<Cell>> getBoard() {
+
         return board;
     }
 
-    public void display(){
-        for(int i=0; i<size; i++){
-            for(int j=0; j<size; j++){
-                if(board.get(i).get(j).getCellState().equals(CellState.EMPTY)){
-                    System.out.printf("|   |");
-                }
-                else {
-                    System.out.printf("| " + board.get(i).get(j).getPlayer().getSymbol() + " |");
+    public void display() {
+
+        String separator = "-".repeat(size * 4 + 1);
+
+        for (int i = 0; i < size; i++) {
+
+            System.out.println(separator);
+
+            for (int j = 0; j < size; j++) {
+
+                Cell cell = board.get(i).get(j);
+
+                if (cell.getCellState() == CellState.EMPTY) {
+                    System.out.print("|   ");
+                } else {
+                    System.out.print("| " + cell.getPlayer().getSymbol() + " ");
                 }
             }
-            System.out.println("\n");
-        }
-    }
 
+            System.out.println("|");
+        }
+
+        System.out.println(separator);
+    }
 }

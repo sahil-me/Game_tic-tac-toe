@@ -41,10 +41,22 @@ public class Player {
 
     public Move decideMove(Board board) {
 
+        // ROW
         System.out.print("Enter row (0-" + (board.getSize() - 1) + "): ");
+
+        while (!SCANNER.hasNextInt()) {
+            System.out.println("Please enter a valid row!");
+            SCANNER.next();
+        }
         int row = SCANNER.nextInt();
 
+        // Column
         System.out.print("Enter column (0-" + (board.getSize() - 1) + "): ");
+
+        while (!SCANNER.hasNextInt()) {
+            System.out.println("Please enter a valid column!");
+            SCANNER.next();
+        }
         int col = SCANNER.nextInt();
 
         if (row < 0 || row >= board.getSize()

@@ -8,6 +8,8 @@ import java.util.Random;
 
 public class RandomBotPlayingStrategy implements BotPlayingStrategy {
 
+    private static final Random RANDOM = new Random();
+
     @Override
     public Move decideMove(Player player, Board board) {
 
@@ -26,9 +28,8 @@ public class RandomBotPlayingStrategy implements BotPlayingStrategy {
             return null;
         }
 
-        Random random = new Random();
-
-        Cell randomCell = emptyCells.get(random.nextInt(emptyCells.size()));
+        Cell randomCell =
+                emptyCells.get(RANDOM.nextInt(emptyCells.size()));
 
         return new Move(player, randomCell);
     }

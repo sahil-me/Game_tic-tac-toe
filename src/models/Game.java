@@ -128,7 +128,7 @@ public class Game {
             return this;
         }
 
-        public Builder setGameWinningStrategy(String winningStrategy) {
+        public Builder setGameWinningStrategy(WinningStrategyType winningStrategy) {
             this.gameWinningStrategy = GameWinningStrategyFactory.getGameWinningStrategy(winningStrategy, this.size);
             return this;
         }

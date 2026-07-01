@@ -1,16 +1,17 @@
 package factories;
 
+import models.WinningStrategyType;
 import strategies.gamewinningstrategy.GameWinningStrategy;
 import strategies.gamewinningstrategy.OrderOneGameWinningStrategy;
 
 public class GameWinningStrategyFactory {
     public static GameWinningStrategy getGameWinningStrategy(
-            String winningStrategy,
+            WinningStrategyType winningStrategy,
             int size){
 
         switch (winningStrategy) {
 
-            case "OrderOne":
+            case ORDER_ONE:
                 return new OrderOneGameWinningStrategy(size);
 
             default:

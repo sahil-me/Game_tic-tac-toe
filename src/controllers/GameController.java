@@ -1,10 +1,7 @@
 package controllers;
 
 import exceptions.InvalidGameConstructionParametersException;
-import models.Board;
-import models.Game;
-import models.GameState;
-import models.Player;
+import models.*;
 
 import java.util.List;
 
@@ -12,7 +9,7 @@ public class GameController {
 
     public Game createGame(int size,
                            List<Player> players,
-                           String winningStrategy)
+                           WinningStrategyType winningStrategy)
             throws InvalidGameConstructionParametersException {
 
         return Game.getBuilder()
