@@ -11,7 +11,7 @@ public class TicTacToeMain {
         Scanner in = new Scanner(System.in);
 
         GameController gameController = new GameController();
-        System.out.println("=========== Welcome to Tic Tac Toe ============");
+        System.out.println("\n=========== Welcome to Tic Tac Toe ============");
 
         System.out.println("What is the dimension of the game?");
         int size = in.nextInt();
@@ -23,28 +23,59 @@ public class TicTacToeMain {
 
         int toIterate = size - 1;
 
-        if(isBotString.equals("y")){
-            toIterate -= 1;
+        if (isBotString.equalsIgnoreCase("y")) {
+            toIterate--;
         }
 
-        for(int i=1; i<=toIterate; i++){
-            System.out.println("What is the name of the player?" + i);
+        for (int i = 1; i <= toIterate; i++) {
+
+            System.out.println("What is the name of player " + i + "?");
             String playerName = in.next();
 
-            System.out.println("What is the symbol for this player?" + i);
+            System.out.println("What is the symbol for player " + i + "?");
             char playerSymbol = in.next().charAt(0);
 
             players.add(new Player(playerName, playerSymbol, PlayerType.HUMAN));
         }
 
-        if(isBotString.equals("y")){
-            System.out.println("What is the name of the bot? ");
+        if (isBotString.equalsIgnoreCase("y")) {
+
+            System.out.println("What is the name of the bot?");
             String botName = in.next();
 
-            System.out.println("What is the symbol for this bot? ");
+            System.out.println("What is the symbol for the bot?");
             char botSymbol = in.next().charAt(0);
 
-            players.add(new Bot(botName, botSymbol, PlayerType.BOT, BotDifficultyLevel.EASY));
+            System.out.println("""
+                            Choose Bot Difficulty:
+                            1. EASY
+                            2. MEDIUM
+                            3. HARD
+                            """);
+
+            int choice = in.nextInt();
+
+            BotDifficultyLevel level;
+
+            switch (choice) {
+                case 1:
+                    level = BotDifficultyLevel.EASY;
+                    break;
+
+                case 2:
+                    level = BotDifficultyLevel.MEDIUM;
+                    break;
+
+                case 3:
+                    level = BotDifficultyLevel.HARD;
+                    break;
+
+                default:
+                    System.out.println("Invalid choice. Defaulting to EASY.");
+                    level = BotDifficultyLevel.EASY;
+            }
+
+            players.add(new Bot(botName, botSymbol, level));
         }
 
         String winningStrategy = "OrderOne";
@@ -63,16 +94,22 @@ public class TicTacToeMain {
         }
 
         while(gameController.getGameState(game) == GameState.IN_PROGRESS) {
-            System.out.println("This is your current board");
+            System.out.println("\nThis is your current board");
             gameController.displayBoard(game);
 
             gameController.executeGame(game);
         }
 
-        System.out.println("Game has ended. Result was: ");
+        if(game.getGameState() == GameState.DRAW) {
+
+            System.out.println("\nGame has ended!");
+            System.out.println("Result:\nIt's a DRAW! 🤝");
+        }
 
         if(game.getGameState() != GameState.DRAW){
-            System.out.println("Winner is: " + gameController.getWinner(game).getName());
+
+            System.out.println("\nGame has ended!");
+            System.out.println("\nResult:\nWinner is " + gameController.getWinner(game).getName() + " 👑");
             gameController.displayBoard(game);
         }
 

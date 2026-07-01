@@ -2,5 +2,5 @@ package models;
 
 public enum PlayerType {
     HUMAN,
-    Bot, BOT
+    BOT
 }
