@@ -13,11 +13,44 @@ public class TicTacToeMain {
         GameController gameController = new GameController();
         System.out.println("\n=========== Welcome to Tic Tac Toe ============");
 
-        System.out.println("What is the dimension of the game?");
-        int size = in.nextInt();
+        // Dimension
+        int size;
 
-        System.out.println("Will there be a bot in the game? y/n");
-        String isBotString = in.next();
+        while (true) {
+
+            System.out.print("Enter board dimension (minimum 3): ");
+
+            if (!in.hasNextInt()) {
+                System.out.println("Please enter a valid number.");
+                in.next();      // discard invalid input
+                continue;
+            }
+
+            size = in.nextInt();
+
+            if (size >= 3) {
+                break;
+            }
+
+            System.out.println("Board dimension must be at least 3.");
+        }
+
+        // BOT
+        String isBotString;
+
+        while (true) {
+
+            System.out.print("Will there be a bot in the game? (y/n): ");
+
+            isBotString = in.next();
+
+            if (isBotString.equalsIgnoreCase("y") ||
+                    isBotString.equalsIgnoreCase("n")) {
+                break;
+            }
+
+            System.out.println("Invalid input. Please enter only y or n.");
+        }
 
         List<Player> players = new ArrayList<>();
 
