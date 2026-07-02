@@ -14,12 +14,13 @@ public class TicTacToeMain {
 
         Scanner in = new Scanner(System.in);
         GameController gameController = new GameController();
+        ScoreBoard scoreBoard = new ScoreBoard();
 
         while (true) {
 
             try {
 
-                if (!playGame(in, gameController)) {
+                if (!playGame(in, gameController, scoreBoard)) {
 
                     System.out.println("""                    
                                     =================================
@@ -41,7 +42,8 @@ public class TicTacToeMain {
 
     private static boolean playGame(
                         Scanner in,
-                        GameController gameController)
+                        GameController gameController,
+                        ScoreBoard scoreBoard)
                         throws InvalidGameConstructionParametersException {
 
         System.out.println("\n=========== Welcome to Tic Tac Toe ============");
@@ -250,6 +252,7 @@ public class TicTacToeMain {
         if (game.getGameState() == GameState.DRAW) {
 
             System.out.println("Result:\n🤝 It's a DRAW!");
+            scoreBoard.recordDraw();
 
         } else {
 
@@ -257,7 +260,12 @@ public class TicTacToeMain {
                     + gameController.getWinner(game).getName());
 
             gameController.displayBoard(game);
+
+            scoreBoard.recordWin(
+                    gameController.getWinner(game).getName());
         }
+
+        scoreBoard.display();
 
         String playAgain;
 
