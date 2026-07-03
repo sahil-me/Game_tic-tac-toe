@@ -24,7 +24,7 @@ https://github.com/user-attachments/assets/ab1fab1b-c41f-4402-ba69-cb375bdbe9bd
 
 ---
 
-# Introduction
+## Introduction
 
 **Tic-Tac-Toe** is a console-based Java application developed using **Object-Oriented Programming (OOP)** principles and **Low-Level Design (LLD)** concepts.
 
@@ -34,7 +34,7 @@ The primary goal of this project is to showcase backend engineering practices, o
 
 ---
 
-# Features
+## Features
 
 - Human vs Human gameplay
 - Human vs Bot gameplay
@@ -56,7 +56,7 @@ The primary goal of this project is to showcase backend engineering practices, o
 
 ---
 
-# Screenshots
+## Screenshots
 
 <img width="1366" height="733" alt="SS1" src="https://github.com/user-attachments/assets/8231ef05-9225-4293-9be7-44a99bdcf8ec" />
 <img width="1364" height="731" alt="SS2" src="https://github.com/user-attachments/assets/6173823d-79a4-44a0-ba0b-17ded42f02ca" />
@@ -69,7 +69,7 @@ The primary goal of this project is to showcase backend engineering practices, o
 
 ---
 
-# Project Structure
+## Project Structure
 
 ```text
 Game_tic-tac-toe/
@@ -121,7 +121,7 @@ Game_tic-tac-toe/
 
 ---
 
-# Architecture
+## Architecture
 
 ```text
                     TicTacToeMain
@@ -141,7 +141,7 @@ The application follows a modular architecture that separates responsibilities b
 
 ---
 
-# Design Patterns
+## Design Patterns
 
 This project demonstrates several widely used software design patterns.
 
@@ -155,7 +155,7 @@ This project demonstrates several widely used software design patterns.
 
 ---
 
-# Tech Stack
+## Tech Stack
 
 | Technology | Purpose |
 |------------|---------|
@@ -169,35 +169,34 @@ This project demonstrates several widely used software design patterns.
 
 ---
 
-# Application Workflow
+## Application Workflow
 
 1️⃣ Launch the application.
 
 2️⃣ Enter the board dimension.
 
-3️⃣ Choose Human vs Human or Human vs Bot.
+3️⃣ Choose the game mode (Human vs Human or Human vs Bot).
 
-4️⃣ Enter player details.
+4️⃣ Enter player details and assign unique symbols.
 
-5️⃣ Select the bot difficulty level.
+5️⃣ Select the bot difficulty level (if playing against a bot).
 
 6️⃣ Players take turns making valid moves.
 
-7️⃣ The game automatically validates moves and checks for:
-
+7️⃣ The game automatically validates each move and checks for:
    - Winner
    - Draw
    - Invalid moves
 
-8️⃣ Display the game result.
+8️⃣ Display the game result and the final board.
 
 9️⃣ Update the live scoreboard.
 
-🔟 Choose whether to play another game.
+🔟 Choose whether to play another game or exit the application.
 
 ---
 
-# Future Enhancements
+## Future Enhancements
 
 - Minimax-based AI Bot
 - Java Swing / JavaFX GUI
@@ -209,7 +208,7 @@ This project demonstrates several widely used software design patterns.
 
 ---
 
-# Resources
+## Resources
 
 [![W3Schools | Java Tutorial](https://img.shields.io/badge/W3Schools-Java%20Tutorial-04AA6D?style=for-the-badge&logo=w3schools&logoColor=white)](https://www.w3schools.com/java/default.asp)
 [![GeeksforGeeks | OOP in Java](https://img.shields.io/badge/GeeksforGeeks-OOP%20in%20Java-2F8D46?style=for-the-badge&logo=geeksforgeeks&logoColor=white)](https://www.geeksforgeeks.org/object-oriented-programming-oops-concept-in-java/)
@@ -217,7 +216,7 @@ This project demonstrates several widely used software design patterns.
 
 ---
 
-# Contributing
+## Contributing
 
 Contributions are welcome. Before submitting changes, please review:
 
@@ -227,7 +226,7 @@ Contributions are welcome. Before submitting changes, please review:
 
 ---
 
-# License
+## License
 
 This project is licensed under the **MIT License**.
 
@@ -235,7 +234,7 @@ See the **[LICENSE](./LICENSE)** file for details.
 
 ---
 
-# Author
+## Author
 
 [**Sahil Sharma**](https://github.com/sahil-me)
 
