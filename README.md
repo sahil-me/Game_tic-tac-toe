@@ -58,7 +58,14 @@ The primary goal of this project is to showcase backend engineering practices, o
 
 # Screenshots
 
-> 
+<img width="1366" height="733" alt="SS1" src="https://github.com/user-attachments/assets/8231ef05-9225-4293-9be7-44a99bdcf8ec" />
+<img width="1364" height="731" alt="SS2" src="https://github.com/user-attachments/assets/6173823d-79a4-44a0-ba0b-17ded42f02ca" />
+<img width="1366" height="734" alt="SS3" src="https://github.com/user-attachments/assets/38708c07-0bee-4a85-9c67-e07abd14d748" />
+<img width="1366" height="732" alt="SS4" src="https://github.com/user-attachments/assets/26f4af6d-c22f-40b7-ba41-eb46d671dd82" />
+<img width="1365" height="731" alt="SS5" src="https://github.com/user-attachments/assets/6152c3c1-7472-4feb-b793-d25a1503dc1f" />
+<img width="1366" height="734" alt="SS6" src="https://github.com/user-attachments/assets/7d51645f-ae69-45b8-82fa-d43399bebc51" />
+<img width="1366" height="735" alt="SS7" src="https://github.com/user-attachments/assets/efceb211-54a3-4c33-b70e-e2ae3759aa7f" />
+<img width="1366" height="735" alt="SS8" src="https://github.com/user-attachments/assets/1f05633e-00aa-4b83-97a0-b175d5475582" />
 
 ---
 
