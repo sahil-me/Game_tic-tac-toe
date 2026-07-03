@@ -1,70 +1,238 @@
-# Tic-Tac-Toe Game
-
-## Overview
-The Tic-Tac-Toe Game is a simple yet engaging application that allows users to play against a bot or another human player. This project is developed using Java and follows object-oriented principles to ensure modularity and reusability. It implements different strategies for game-winning logic, making the gameplay more dynamic and challenging.
-
-## 🎮 Features
-- **Play against a Bot** with different difficulty levels.
-- **Multiplayer mode** for two human players.
-- Implements **various winning strategies** (e.g., Order-One Strategy).
-- Bot plays **random moves** if no strategy is set.
-- **Error handling** for invalid inputs.
-- **Lightweight and efficient performance.**
-
-## 🛠️ Technologies Used
-- **Programming Language:** Java
-- **Development Tools:** IntelliJ IDEA
-- **Version Control:** Git & GitHub
-
-## 🚀 Installation & Setup
-1. **Clone the repository:**
-   ```sh
-   git clone https://github.com/sahil-me/Game_tic-tac-toe.git
-   ```
-2. **Navigate to the Project Directory:**
-   ```sh
-   cd Game_tic-tac-toe
-   ```
-3. **Open in IntelliJ IDEA** (or any Java IDE).
-4. **Run the main file:**
-   ```sh
-   javac src/TicTacToeMain.java
-   java src.TicTacToeMain
-   ```
-
-## 🕹️ How to Play
-- Run the program and follow on-screen prompts.
-- Choose **bot or human** player.
-- Enter your name and symbol (**X or O**).
-- Players take turns placing their symbols on a 3×3 grid.
-- The game ends when:
-  - A player **wins** (3 symbols in a row, column, or diagonal).
-  - **Draw** (grid is full, and no winner).
-
-## 📸 Screenshots
-![Screenshot 2025-03-28 195742](https://github.com/user-attachments/assets/58c7ed77-4b6a-4501-970f-a19b256ab50a)
+# 🎮 Tic-Tac-Toe
 
 
-## 🤝 Contributing
-Contributions are welcome! If you'd like to improve this project, follow these steps:
 
-1. **Fork the repository**
-2. **Create a new branch** (`feature-branch`)
-3. **Commit your changes**
-   ```sh
-   git commit -m "Add new feature"
-   ```
-4. **Push to the branch**
-   ```sh
-   git push origin feature-branch
-   ```
-5. **Create a Pull Request**
-
-## 📧 Contact
-For any queries or suggestions, feel free to contact:
-
-- **GitHub:** [sahil-me](https://github.com/sahil-me)
+> 🎥 Tic-Tac-Toe Gameplay Demonstration
 
 ---
-⭐ **If you like this project, give it a star on GitHub!** ⭐
+
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Features](#features)
+- [Screenshots](#screenshots)
+- [Project Structure](#project-structure)
+- [Architecture](#architecture)
+- [Design Patterns](#design-patterns)
+- [Tech Stack](#tech-stack)
+- [Application Workflow](#application-workflow)
+- [Future Enhancements](#future-enhancements)
+- [Resources](#resources)
+- [Contributing](#contributing)
+- [License](#license)
+- [Author](#author)
+
+---
+
+# Introduction
+
+**Tic-Tac-Toe** is a console-based Java application developed using **Object-Oriented Programming (OOP)** principles and **Low-Level Design (LLD)** concepts.
+
+The project demonstrates clean software architecture through the implementation of multiple design patterns, modular components, and extensible gameplay logic. It supports **Human vs Human** and **Human vs Bot** gameplay with configurable bot difficulty levels, dynamic board sizes, replay support, and a live scoreboard.
+
+The primary goal of this project is to showcase backend engineering practices, object-oriented design, and maintainable software architecture rather than graphical user interface development.
+
+---
+
+# Features
+
+- Human vs Human gameplay
+- Human vs Bot gameplay
+- Multiple Bot Difficulty Levels
+  - Easy
+  - Medium
+  - Hard
+- Dynamic board size (3×3 and above)
+- Live Scoreboard across multiple games
+- Play Again functionality
+- Duplicate player name validation
+- Duplicate symbol validation
+- Comprehensive input validation
+- Invalid move handling
+- Automatic winner detection
+- Draw detection
+- Clean console board rendering
+- Extensible architecture using design patterns
+
+---
+
+# Screenshots
+
+> 
+
+---
+
+# Project Structure
+
+```text
+Game_tic-tac-toe/
+│
+├── .github/
+│
+├── src/
+│   ├── controllers/
+│   │   └── GameController.java
+│   │
+│   ├── exceptions/
+│   │   └── InvalidGameConstructionParametersException.java
+│   │
+│   ├── factories/
+│   │   ├── BotPlayingStrategyFactory.java
+│   │   └── GameWinningStrategyFactory.java
+│   │
+│   ├── models/
+│   │   ├── Board.java
+│   │   ├── Bot.java
+│   │   ├── BotDifficultyLevel.java
+│   │   ├── Cell.java
+│   │   ├── CellState.java
+│   │   ├── Game.java
+│   │   ├── GameState.java
+│   │   ├── Move.java
+│   │   ├── Player.java
+│   │   ├── PlayerType.java
+│   │   ├── ScoreBoard.java
+│   │   └── WinningStrategyType.java
+│   │
+│   ├── strategies/
+│   │   ├── botplayingstrategy/
+│   │   │   ├── BotPlayingStrategy.java
+│   │   │   └── RandomBotPlayingStrategy.java
+│   │   │
+│   │   └── gamewinningstrategy/
+│   │       ├── GameWinningStrategy.java
+│   │       └── OrderOneGameWinningStrategy.java
+│   │
+│   └── TicTacToeMain.java
+│
+├── .gitignore
+├── CODE_OF_CONDUCT.md
+├── CONTRIBUTING.md
+├── LICENSE
+└── README.md
+```
+
+---
+
+# Architecture
+
+```text
+                    TicTacToeMain
+                          │
+                          ▼
+                   GameController
+                          │
+            ┌─────────────┴─────────────┐
+            ▼                           ▼
+         Game Model                 Factories
+            │                           │
+            ▼                           ▼
+   Winning Strategies          Bot Playing Strategies
+```
+
+The application follows a modular architecture that separates responsibilities between the presentation layer, controller, domain models, factories, and strategy implementations, making the codebase easier to extend and maintain.
+
+---
+
+# Design Patterns
+
+This project demonstrates several widely used software design patterns.
+
+| Design Pattern | Purpose |
+|----------------|---------|
+| **Builder Pattern** | Simplifies game creation while validating required game configuration. |
+| **Factory Pattern** | Creates appropriate bot-playing and game-winning strategy implementations. |
+| **Strategy Pattern** | Allows interchangeable bot-playing algorithms and winning strategies. |
+| **MVC (Lightweight)** | Separates console interaction, controller logic, and domain models. |
+| **SOLID Principles** | Encourages modular, maintainable, and extensible software design. |
+
+---
+
+# Tech Stack
+
+| Technology | Purpose |
+|------------|---------|
+| Java | Programming Language |
+| Object-Oriented Programming (OOP) | Software Design |
+| Low-Level Design (LLD) | System Design |
+| Design Patterns | Extensible Architecture |
+| Git | Version Control |
+| GitHub | Source Code Hosting |
+| IntelliJ IDEA | Integrated Development Environment |
+
+---
+
+# Application Workflow
+
+1️⃣ Launch the application.
+
+2️⃣ Enter the board dimension.
+
+3️⃣ Choose Human vs Human or Human vs Bot.
+
+4️⃣ Enter player details.
+
+5️⃣ Select the bot difficulty level.
+
+6️⃣ Players take turns making valid moves.
+
+7️⃣ The game automatically validates moves and checks for:
+
+   - Winner
+   - Draw
+   - Invalid moves
+
+8️⃣ Display the game result.
+
+9️⃣ Update the live scoreboard.
+
+🔟 Choose whether to play another game.
+
+---
+
+# Future Enhancements
+
+- Minimax-based AI Bot
+- Java Swing / JavaFX GUI
+- Save & Resume Games
+- Persistent Scoreboard
+- Comprehensive JUnit Test Suite
+- Docker Support
+- Game Analytics
+
+---
+
+# Resources
+
+[![W3Schools | Java Tutorial](https://img.shields.io/badge/W3Schools-Java%20Tutorial-04AA6D?style=for-the-badge&logo=w3schools&logoColor=white)](https://www.w3schools.com/java/default.asp)
+[![GeeksforGeeks | OOP in Java](https://img.shields.io/badge/GeeksforGeeks-OOP%20in%20Java-2F8D46?style=for-the-badge&logo=geeksforgeeks&logoColor=white)](https://www.geeksforgeeks.org/object-oriented-programming-oops-concept-in-java/)
+[![GeeksforGeeks | Low-Level Design (LLD)](https://img.shields.io/badge/GeeksforGeeks-Low--Level%20Design%20(LLD)-2F8D46?style=for-the-badge&logo=geeksforgeeks&logoColor=white)](https://www.geeksforgeeks.org/system-design/what-is-low-level-design-or-lld-learn-system-design/)
+
+---
+
+# Contributing
+
+Contributions are welcome. Before submitting changes, please review:
+
+- [Contributing Guide](./Contributing.md)
+- [Code of Conduct](./CODE_OF_CONDUCT.md)
+- [Security Policy](./.github/SECURITY.md)
+
+---
+
+# License
+
+This project is licensed under the **MIT License**.
+
+See the **[LICENSE](./LICENSE)** file for details.
+
+---
+
+# Author
+
+[**Sahil Sharma**](https://github.com/sahil-me)
+
+Thank you for exploring this project.
+
+If you found this project helpful, consider giving it a ⭐ to support its continued development.
 
