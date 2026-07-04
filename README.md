@@ -9,13 +9,13 @@ https://github.com/user-attachments/assets/ab1fab1b-c41f-4402-ba69-cb375bdbe9bd
 ## Table of Contents
 
 - [Introduction](#introduction)
-- [Features](#features)
-- [Screenshots](#screenshots)
-- [Project Structure](#project-structure)
-- [Architecture](#architecture)
+- [Architecture Diagram](#architecture-diagram)
 - [Design Patterns](#design-patterns)
+- [Project Structure](#project-structure)
+- [Features](#features)
 - [Tech Stack](#tech-stack)
 - [Application Workflow](#application-workflow)
+- [Screenshots](#screenshots)
 - [Future Enhancements](#future-enhancements)
 - [Resources](#resources)
 - [Contributing](#contributing)
@@ -34,38 +34,25 @@ The primary goal of this project is to showcase backend engineering practices, o
 
 ---
 
-## Features
+## Architecture Diagram
 
-- Human vs Human gameplay
-- Human vs Bot gameplay
-- Multiple Bot Difficulty Levels
-  - Easy
-  - Medium
-  - Hard
-- Dynamic board size (3×3 and above)
-- Live Scoreboard across multiple games
-- Play Again functionality
-- Duplicate player name validation
-- Duplicate symbol validation
-- Comprehensive input validation
-- Invalid move handling
-- Automatic winner detection
-- Draw detection
-- Clean console board rendering
-- Extensible architecture using design patterns
+<img width="570" height="595" alt="Architecture drawio" src="https://github.com/user-attachments/assets/fc2b9e55-58bf-409d-9c4e-2e85b95f64ef" />
+
+The application follows a modular architecture that separates responsibilities between the presentation layer, controller, domain models, factories, and strategy implementations, making the codebase easier to extend and maintain.
 
 ---
 
-## Screenshots
+## Design Patterns
 
-<img width="1366" height="733" alt="SS1" src="https://github.com/user-attachments/assets/8231ef05-9225-4293-9be7-44a99bdcf8ec" />
-<img width="1364" height="731" alt="SS2" src="https://github.com/user-attachments/assets/6173823d-79a4-44a0-ba0b-17ded42f02ca" />
-<img width="1366" height="734" alt="SS3" src="https://github.com/user-attachments/assets/38708c07-0bee-4a85-9c67-e07abd14d748" />
-<img width="1366" height="732" alt="SS4" src="https://github.com/user-attachments/assets/26f4af6d-c22f-40b7-ba41-eb46d671dd82" />
-<img width="1365" height="731" alt="SS5" src="https://github.com/user-attachments/assets/6152c3c1-7472-4feb-b793-d25a1503dc1f" />
-<img width="1366" height="734" alt="SS6" src="https://github.com/user-attachments/assets/7d51645f-ae69-45b8-82fa-d43399bebc51" />
-<img width="1366" height="735" alt="SS7" src="https://github.com/user-attachments/assets/efceb211-54a3-4c33-b70e-e2ae3759aa7f" />
-<img width="1366" height="735" alt="SS8" src="https://github.com/user-attachments/assets/1f05633e-00aa-4b83-97a0-b175d5475582" />
+This project demonstrates several widely used software design patterns.
+
+| Design Pattern | Purpose |
+|----------------|---------|
+| **Builder Pattern** | Simplifies game creation while validating required game configuration. |
+| **Factory Pattern** | Creates appropriate bot-playing and game-winning strategy implementations. |
+| **Strategy Pattern** | Allows interchangeable bot-playing algorithms and winning strategies. |
+| **MVC (Lightweight)** | Separates console interaction, controller logic, and domain models. |
+| **SOLID Principles** | Encourages modular, maintainable, and extensible software design. |
 
 ---
 
@@ -121,37 +108,25 @@ Game_tic-tac-toe/
 
 ---
 
-## Architecture
+## Features
 
-```text
-                    TicTacToeMain
-                          │
-                          ▼
-                   GameController
-                          │
-            ┌─────────────┴─────────────┐
-            ▼                           ▼
-         Game Model                 Factories
-            │                           │
-            ▼                           ▼
-   Winning Strategies          Bot Playing Strategies
-```
-
-The application follows a modular architecture that separates responsibilities between the presentation layer, controller, domain models, factories, and strategy implementations, making the codebase easier to extend and maintain.
-
----
-
-## Design Patterns
-
-This project demonstrates several widely used software design patterns.
-
-| Design Pattern | Purpose |
-|----------------|---------|
-| **Builder Pattern** | Simplifies game creation while validating required game configuration. |
-| **Factory Pattern** | Creates appropriate bot-playing and game-winning strategy implementations. |
-| **Strategy Pattern** | Allows interchangeable bot-playing algorithms and winning strategies. |
-| **MVC (Lightweight)** | Separates console interaction, controller logic, and domain models. |
-| **SOLID Principles** | Encourages modular, maintainable, and extensible software design. |
+- Human vs Human gameplay
+- Human vs Bot gameplay
+- Multiple Bot Difficulty Levels
+  - Easy
+  - Medium
+  - Hard
+- Dynamic board size (3×3 and above)
+- Live Scoreboard across multiple games
+- Play Again functionality
+- Duplicate player name validation
+- Duplicate symbol validation
+- Comprehensive input validation
+- Invalid move handling
+- Automatic winner detection
+- Draw detection
+- Clean console board rendering
+- Extensible architecture using design patterns
 
 ---
 
@@ -193,6 +168,19 @@ This project demonstrates several widely used software design patterns.
 9️⃣ Update the live scoreboard.
 
 🔟 Choose whether to play another game or exit the application.
+
+---
+
+## Screenshots
+
+<img width="1366" height="733" alt="SS1" src="https://github.com/user-attachments/assets/8231ef05-9225-4293-9be7-44a99bdcf8ec" />
+<img width="1364" height="731" alt="SS2" src="https://github.com/user-attachments/assets/6173823d-79a4-44a0-ba0b-17ded42f02ca" />
+<img width="1366" height="734" alt="SS3" src="https://github.com/user-attachments/assets/38708c07-0bee-4a85-9c67-e07abd14d748" />
+<img width="1366" height="732" alt="SS4" src="https://github.com/user-attachments/assets/26f4af6d-c22f-40b7-ba41-eb46d671dd82" />
+<img width="1365" height="731" alt="SS5" src="https://github.com/user-attachments/assets/6152c3c1-7472-4feb-b793-d25a1503dc1f" />
+<img width="1366" height="734" alt="SS6" src="https://github.com/user-attachments/assets/7d51645f-ae69-45b8-82fa-d43399bebc51" />
+<img width="1366" height="735" alt="SS7" src="https://github.com/user-attachments/assets/efceb211-54a3-4c33-b70e-e2ae3759aa7f" />
+<img width="1366" height="735" alt="SS8" src="https://github.com/user-attachments/assets/1f05633e-00aa-4b83-97a0-b175d5475582" />
 
 ---
 
