@@ -226,7 +226,5 @@ See the **[LICENSE](./LICENSE)** file for details.
 
 [**Sahil Sharma**](https://github.com/sahil-me)
 
-Thank you for exploring this project.
-
-If you found this project helpful, consider giving it a ⭐ to support its continued development.
+Thank you for exploring this project. If you found this project helpful, consider giving it a ⭐ to support its continued development.
 
