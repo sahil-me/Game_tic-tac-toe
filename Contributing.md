@@ -24,8 +24,6 @@ SOFTWARE.
 
 # Contributing to Tic-Tac-Toe
 
-Thank you for your interest in contributing to **Tic-Tac-Toe**!
-
 Contributions of all kinds are welcome. Whether you're fixing bugs, improving gameplay, enhancing the bot logic, optimizing the code, implementing new design patterns, or improving the documentation, every contribution helps make this project better.
 
 If you find this project useful, consider sharing it with others, referencing it in your projects, or giving the repository a ⭐ to support its development.
